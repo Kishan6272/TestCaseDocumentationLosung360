@@ -1,4 +1,4 @@
-package DemoPrachi;
+package TestCase2;
 
 //import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;

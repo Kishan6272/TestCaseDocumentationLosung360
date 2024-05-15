@@ -1,10 +1,10 @@
-package DemoPrachi;
+package TestCase2;
 
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class FinancialTransaction implements FinancialSystem{
+public class FinancialTransaction implements FinancialSystem {
 
     @Test
     public void testSuccessfulTransaction() throws Exception, InsufficientFundsException {

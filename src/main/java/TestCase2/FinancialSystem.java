@@ -1,4 +1,4 @@
-package DemoPrachi;
+package TestCase2;
 
 public interface FinancialSystem {
     public static void login(String user, String password) {

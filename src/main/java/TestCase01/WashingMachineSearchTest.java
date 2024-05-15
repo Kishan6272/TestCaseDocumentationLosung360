@@ -1,4 +1,4 @@
-package DemoPrachi;
+package TestCase01;
 
 //import com.sun.tools.javac.util.List;
 import org.openqa.selenium.By;

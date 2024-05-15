@@ -1,4 +1,4 @@
-package DemoPrachi;
+package TestCase2;
 
 import java.util.Objects;
 
