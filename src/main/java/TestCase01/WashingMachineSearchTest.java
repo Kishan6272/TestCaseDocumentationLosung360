@@ -62,6 +62,8 @@ public class WashingMachineSearchTest {
 
         @AfterTest
         public void tearDown() {
+            driver.close();
+
             driver.quit();
         }
     }
