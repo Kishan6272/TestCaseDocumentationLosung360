@@ -22,8 +22,7 @@ public class WashingMachineSearchTest {
 //            System.setProperty("webdriver.chrome.driver", "\\\"D:\\\\Testing\\\\chromedriver-win64\" +\n" +
 //                    "                \"\\\\chromedriver-win64\\\\chromedriver.exe\\\"");
 
-            System.setProperty("webDriver.crome.driver", "\"D:\\Testing\\chromedriver-win64" +
-                    "\\chromedriver-win64\\chromedriver.exe\"");
+            System.setProperty("webDriver.crome.driver", "D:\\SoftwareTetingToolsandFiles\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe");
 
             driver = new ChromeDriver();
             driver.manage().window().maximize();

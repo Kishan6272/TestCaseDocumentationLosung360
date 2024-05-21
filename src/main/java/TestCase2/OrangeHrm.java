@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.*;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrangeHrm {
@@ -22,9 +23,11 @@ public class OrangeHrm {
     @BeforeTest
     public void setUp()
     {
+        System.setProperty("webDriver.crome.driver", "D:\\SoftwareTetingToolsandFiles\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe");
+
         System.out.println("befor test executed");
         driver=new ChromeDriver();
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.get(baseURL);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 //        driver.findElement(By.xpath("//input[@placeholder=\'Username\']"))
@@ -178,7 +181,7 @@ public class OrangeHrm {
 
     // deleting employee by Id
 
-    @Test(priority = 6)
+    @Test(priority = 6,enabled = true)
     public void deleteEmployeeById() throws InterruptedException {
         logIn();
         driver.findElement(By.xpath("//span[text()='PIM']")).click();
@@ -207,16 +210,75 @@ public class OrangeHrm {
 
 
 
-    public void logout() throws InterruptedException {
-            driver.findElement(By.xpath("//p[@class='oxd-userdropdown-name']")).click();
-           List<WebElement> elementList= driver.findElements(By.xpath("//a[@class=\"oxd-userdropdown-link\"]"));
+
+
+        @Test(priority = 7,enabled = true)
+        public void hadlePagination() throws InterruptedException {
+           logIn();
+            driver.findElement(By.xpath("//span[text()='PIM']")).click();
+            //Thread.sleep(1000);
+            driver.findElement(By.xpath("//a[text()='Employee List']")).click();
+
+           // Thread.sleep(2000);
+
+            List<WebElement>  pagin= driver.findElements(By.xpath("//ul[@class='oxd-pagination__ul']"));
+
+            int n= pagin.size();
+            System.out.println(n);
+            for(int i=0; i<n ;i++)
+            {
+                System.out.println(pagin.get(i).getText());
+            }
+
+            for(int i=0; i<=n ;i++)
+            {
+                System.out.println("hey ia ma running");
+                try {
+                    System.out.println("arte u running");
+                    String currentLinkText=pagin.get(i).getText();
+                   System.out.println("is it reaching"+currentLinkText);
+//                    char []ch= currentLinkText.toCharArray();
+                   int page=Integer.parseInt(String.valueOf(Character.valueOf(ch[i])));
+//                    System.out.println(page);
+                    System.out.println("page no"+page);
+                    pagin.get(i).click();
+
+                    Thread.sleep(3000);
+
+                    List<WebElement> emplistFN=driver.findElements(By.xpath("//div[@class='oxd-table-card']/div/div[3]"));
+                    System.out.println(emplistFN.size());
+
+                    for(int j=0;j<emplistFN.size();j++)
+                    {//print last name of each roe
+                        System.out.println(emplistFN.get(j).getText());
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.out.println("not page number");
+                }
+
+            }
+
+            //logout();
+
+        }
+
+
+
+
+    public  void logout() throws InterruptedException {
+        driver.findElement(By.xpath("//p[@class='oxd-userdropdown-name']")).click();
+        List<WebElement> elementList= driver.findElements(By.xpath("//a[@class=\"oxd-userdropdown-link\"]"));
 
 //           for (int i=0;i<elementList.size();i++)
 //           {   Thread.sleep(2000);
 //               System.out.println(i+":"+elementList.get(i).getText());
 //           }
-           elementList.get(3).click();
-        }
+        elementList.get(3).click();
+    }
+
 
 
 
