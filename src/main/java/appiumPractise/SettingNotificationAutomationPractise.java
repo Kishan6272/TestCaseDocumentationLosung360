@@ -31,8 +31,10 @@ public class SettingNotificationAutomationPractise {
 
         driver.findElement(By.xpath(
                 "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/android.widget.LinearLayout[3]/android.widget.RelativeLayout")).click();
+        Thread.sleep(1000);
         driver.findElement(By.xpath(
                 "//android.widget.TextView[@resource-id=\"android:id/title\" and @text=\"Notifications\"]")).click();
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//android.widget.Switch[@content-desc=\"Android Setup\"]")).click();
         driver.findElement(By.xpath("//android.widget.Switch[@content-desc=\"Android Setup\"]")).click();
         driver.findElement(By.xpath("//android.widget.Switch[@content-desc=\"Digital Wellbeing\"]")).click();
