@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class YouTubeStepDempImpl {
+public class YouTubeStepDemoImpl {
 
     public void setUpConfigrationForOpenYouTube(String cap1,String AppPackage,String AppActivity) throws MalformedURLException {
         Map<String,String> map=new HashMap<>();

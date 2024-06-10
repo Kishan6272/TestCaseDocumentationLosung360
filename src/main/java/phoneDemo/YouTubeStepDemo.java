@@ -7,16 +7,16 @@ import java.net.MalformedURLException;
 
 public class YouTubeStepDemo {
 
-    YouTubeStepDempImpl youTubeStepDempImpl=new YouTubeStepDempImpl();
+    YouTubeStepDemoImpl youTubeStepDemoImpl=new YouTubeStepDemoImpl();
     @Given("^open youTube(.*?) with (.*?) and (.*?)$")
     public void setUpConfigrationForOpenYouTube(String caps12, String appPackage, String appActivity) throws MalformedURLException {
         //  phoneDemoStepImplimentation.setUpConfigrationForPhoneApp(caps1);
-        youTubeStepDempImpl.setUpConfigrationForOpenYouTube(caps12,appPackage,appActivity);
+        youTubeStepDemoImpl.setUpConfigrationForOpenYouTube(caps12,appPackage,appActivity);
 
     }
     @When("open You then setting")
     public void openYouTubeThenSettingToggleDataSaver() throws InterruptedException {
-        youTubeStepDempImpl.openYouTubeThenSettingToggleDataSaver();
+        youTubeStepDemoImpl.openYouTubeThenSettingToggleDataSaver();
     }
 
 //    @When("open You then setting then toggle AutoPlay")

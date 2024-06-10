@@ -6,11 +6,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -120,17 +126,51 @@ public class AppSettingStepImpl {
     }
 
     public void ableToToggleButtonManageAppsAutomatically() throws InterruptedException {
-        Thread.sleep(3000);
-        CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/android.widget.LinearLayout[4]/android.widget.RelativeLayout")).click();
-        //Thread.sleep(1000);
-        CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/android.widget.LinearLayout[2]/android.widget.RelativeLayout")).click();
-        Thread.sleep(1000);
-        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
-        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
-        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")).click();
-        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")).click();
+        //Thread.sleep(3000);
+        scrollUpAndDown();
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/android.widget.LinearLayout[4]/android.widget.RelativeLayout")).click();
+//        //Thread.sleep(1000);
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/android.widget.LinearLayout[2]/android.widget.RelativeLayout")).click();
+//        Thread.sleep(1000);
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")).click();
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")).click();
 
 
+    }
+
+    public void scrollUpAndDown() throws InterruptedException {
+       // CommonUtils.androidDriver.get().findElement(By.xpath(""));
+        Dimension size= CommonUtils.androidDriver.get().manage().window().getSize();
+
+        int startX=size.getWidth()/2;
+        int startY=size.getHeight()/2;
+
+        int endX=startX;
+        int endY=(int)(size.getHeight()*1.0);
+
+        System.out.println(endY);
+
+
+        PointerInput finger1= new PointerInput(PointerInput.Kind.TOUCH,"finger1");
+
+        Sequence sequence=new Sequence(finger1,1)
+                .addAction(finger1.createPointerMove(Duration.ZERO,PointerInput.Origin.viewport(),startX,startY))
+                .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(new Pause(finger1,Duration.ofSeconds(2)))
+                .addAction(finger1.createPointerMove(Duration.ofMillis(200),PointerInput.Origin.viewport(),endX,endY))
+                .addAction(new Pause(finger1,Duration.ofSeconds(2)))
+                .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        CommonUtils.androidDriver.get().perform(Collections.singletonList(sequence));
+
+        Thread.sleep(2000);
+
+    }
+
+    public void scrollDownAndUp()
+    {
     }
 
 

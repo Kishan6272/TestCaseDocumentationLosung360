@@ -32,10 +32,12 @@ public class PhotosDemoStepImpl {
         CommonUtils.androidDriver.set(driver);
     }
 
-    public void openPhotosAndUpdate()
-    {   //android.widget.Button[@resource-id="android:id/button1"]
+    public void openPhotosAndUpdate() throws InterruptedException {   //android.widget.Button[@resource-id="android:id/button1"]
+        Thread.sleep(3000);
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.Button[@resource-id=\"android:id/button1\"]")).click();
+        Thread.sleep(2000);
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageView[@content-desc=\"Options\"]")).click();
+        Thread.sleep(1000);
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.TextView[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\" and @text=\"Settings\"]")).click();
         CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[1]/android.view.View[1]")).click();
         CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[1]/android.view.View[2]")).click();
