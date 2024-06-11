@@ -169,9 +169,7 @@ public class AppSettingStepImpl {
 
     }
 
-    public void scrollDownAndUp()
-    {
-    }
+
 
 
     }

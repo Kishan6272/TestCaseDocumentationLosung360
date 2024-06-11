@@ -85,6 +85,7 @@ public class WebViewBrowserDefaultEmulatorStepImpl {
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.EditText[@resource-id=\"org.chromium.webview_shell:id/url_field\"]")).clear();
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.EditText[@resource-id=\"org.chromium.webview_shell:id/url_field\"]"))
                 .sendKeys("flipkart.com");
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Load URL\"]")).click();
 
         Thread.sleep(2000);
 
@@ -102,6 +103,7 @@ public class WebViewBrowserDefaultEmulatorStepImpl {
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.EditText[@resource-id=\"org.chromium.webview_shell:id/url_field\"]"))
                 .sendKeys("Mail.com");
 
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Load URL\"]")).click();
         Thread.sleep(2000);
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.view.View[@content-desc=\"open Menu\"]")).click();
         Thread.sleep(2000);
@@ -115,6 +117,7 @@ public class WebViewBrowserDefaultEmulatorStepImpl {
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.EditText[@resource-id=\"org.chromium.webview_shell:id/url_field\"]")).clear();
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.EditText[@resource-id=\"org.chromium.webview_shell:id/url_field\"]"))
                 .sendKeys("Mail.com");
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Load URL\"]")).click();
 
         Thread.sleep(2000);
         //android.view.MenuItem[@text="Premium"]
