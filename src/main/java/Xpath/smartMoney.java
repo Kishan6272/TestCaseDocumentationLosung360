@@ -1,2 +1,6 @@
-package Xpath;public class smartMoney {
+package Xpath;
+
+public class smartMoney {
+
+
 }

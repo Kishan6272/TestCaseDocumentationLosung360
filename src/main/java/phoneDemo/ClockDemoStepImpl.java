@@ -26,7 +26,7 @@ public class ClockDemoStepImpl {
         desiredCapabilities.setCapability("platformName","Android");
         desiredCapabilities.setCapability("automationName", "UiAutomator2");
 
-        AndroidDriver driver=new AndroidDriver(new URL("http://127.0.0.1:4723"),desiredCapabilities);
+        AndroidDriver driver=new AndroidDriver(new URL("http://192.168.1.2:4723"),desiredCapabilities);
 
         CommonUtils.androidDriver.set(driver);
     }
