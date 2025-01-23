@@ -39,5 +39,18 @@ public class smartMoneyStepImpl {
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Continue\"]")).click();
         Thread.sleep(2000);
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.Button[@resource-id=\"android:id/button1\"]")).click();
+        CommonUtils.androidDriver.get().navigate().back();
+    }
+
+    public static void open_Smart_Money_from_app_Screen() throws InterruptedException {
+        Thread.sleep(10000);
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.TextView[@content-desc=\"Smart Money\"]")).click();
+        Thread.sleep(2000);
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Get Started\"]/android.view.ViewGroup")).click();
+        Thread.sleep(2000);
+        //CommonUtils.androidDriver.get().findElement(By.xpath(""))
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.EditText")).sendKeys("9615611835");
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"I have read and agreed with the Terms & Conditions and Privacy Policy\"]/android.widget.ImageView")).click();
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Continue\"]/android.view.ViewGroup")).click();
     }
 }

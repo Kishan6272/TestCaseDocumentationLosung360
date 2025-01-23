@@ -21,5 +21,11 @@ public class smartMoneyStepDef {
         smartMoneyStepImpl.app_screen_is_launched_select_environment();
     }
 
+    @Given("open Smart Money from app screen")
+
+    public void open_Smart_Money_from_app_Screen() throws InterruptedException {
+        phoneDemo.smartMoneyStepImpl.open_Smart_Money_from_app_Screen();
+    }
+
 
 }
