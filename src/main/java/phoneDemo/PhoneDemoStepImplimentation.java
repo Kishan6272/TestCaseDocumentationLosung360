@@ -1,7 +1,9 @@
 package phoneDemo;
 
 import appiumPractise.CommonUtils;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -30,6 +32,9 @@ public class PhoneDemoStepImplimentation extends CommonUtils {
         desiredCapabilities.setCapability("automationName", "UiAutomator2");
 
         AndroidDriver driver=new AndroidDriver(new URL("http://127.0.0.1:4723"),desiredCapabilities);
+       // IOSDriver driver1=new
+
+       // AppiumDriver driver1=new AndroidDriver(new URL("http://127.0.0.1:4723"),desiredCapabilities);
 
         CommonUtils.androidDriver.set(driver);
 
@@ -73,6 +78,7 @@ public class PhoneDemoStepImplimentation extends CommonUtils {
 
 
    }
+
 
    public void dial_A_CustomerByName() throws InterruptedException {
        CommonUtils.androidDriver.get().findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.android.dialer:id/bottom_nav_item_image\"])[3]")).click();

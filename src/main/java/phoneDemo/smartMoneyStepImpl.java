@@ -7,10 +7,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 public class smartMoneyStepImpl {
+
+
 
 
     public void setUpConfigrationForSmartMoney(String cap,String App) throws MalformedURLException {
@@ -40,10 +43,18 @@ public class smartMoneyStepImpl {
         Thread.sleep(2000);
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.Button[@resource-id=\"android:id/button1\"]")).click();
         CommonUtils.androidDriver.get().navigate().back();
+       // CommonUtils.androidDriver.get().navigate().refresh();
+       // try{CommonUtils.androidDriver.clone(1);}catch (Exception e) {}
     }
 
     public static void open_Smart_Money_from_app_Screen() throws InterruptedException {
         Thread.sleep(10000);
+       // CommonUtils.androidDriver.get().navigate().refresh();
+        CommonUtils.androidDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.TextView[@content-desc=\"Smart Money\"]")).click();
+     //   CommonUtils.androidDriver.get().manage().timeouts().
+        CommonUtils.androidDriver.get().navigate().back();
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.TextView[@content-desc=\"Smart Money\"]")).click();
         Thread.sleep(2000);
         CommonUtils.androidDriver.get().findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Get Started\"]/android.view.ViewGroup")).click();

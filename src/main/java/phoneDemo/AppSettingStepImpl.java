@@ -1,6 +1,7 @@
 package phoneDemo;
 
 import appiumPractise.CommonUtils;
+import appiumPractise.ScrollUpAndDown;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,6 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AppSettingStepImpl {
+
+
+    ScrollUpAndDown scrollUpAndDown=new ScrollUpAndDown();
 
 
 
@@ -47,25 +51,45 @@ public class AppSettingStepImpl {
     public void completeTheFunctionallityOfDisplaySetting() throws InterruptedException {
 
 
+        CommonUtils.androidDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
+        scrollUpAndDown.ScrollUp();
+
+
+        scrollUpAndDown.ScrollUp();
+
+
+        //android.widget.TextView[@resource-id="android:id/title" and @text="System"]
+
+        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/title\" and @text=\"System\"]")).click();
 
 
 
 
-        CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/android.widget.LinearLayout[5]/android.widget.RelativeLayout"))
-                .click();
-        Thread.sleep(1000);
-        CommonUtils.androidDriver.get().findElement(By.xpath(
-                "//android.widget.Switch[@content-desc=\"Dark theme\"]")).click();
-        Thread.sleep(2000);
-        CommonUtils.androidDriver.get().findElement(By.xpath(
-                "//android.widget.Switch[@content-desc=\"Dark theme\"]")).click();
 
 
-        CommonUtils.androidDriver.get().findElement(By.xpath(
-                "//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
-        CommonUtils.androidDriver.get().findElement(By.xpath(
-                "//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
-        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")).click();
+
+
+
+
+
+
+
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/android.widget.LinearLayout[5]/android.widget.RelativeLayout"))
+//                .click();
+//        Thread.sleep(1000);
+//        CommonUtils.androidDriver.get().findElement(By.xpath(
+//                "//android.widget.Switch[@content-desc=\"Dark theme\"]")).click();
+//        Thread.sleep(2000);
+//        CommonUtils.androidDriver.get().findElement(By.xpath(
+//                "//android.widget.Switch[@content-desc=\"Dark theme\"]")).click();
+//
+//
+//        CommonUtils.androidDriver.get().findElement(By.xpath(
+//                "//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
+//        CommonUtils.androidDriver.get().findElement(By.xpath(
+//                "//android.widget.Switch[@resource-id=\"android:id/switch_widget\"]")).click();
+//        CommonUtils.androidDriver.get().findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Back\"]")).click();
       //
 
     }
